@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace byteArrayImageGenerator
 {
-  class Main
+  class Program
   {
+    static public void Main(String[] args)
+    {
+      Console.WriteLine("To Test function later.");
+    }
   }
 }

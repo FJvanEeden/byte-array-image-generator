@@ -1,0 +1,7 @@
+C:\Users\TKK\Documents\Onyx_projects\byte-array-image-generator\byteArrayImageGenerator\byteArrayImageGenerator\bin\Debug\byteArrayImageGenerator.exe.config
+C:\Users\TKK\Documents\Onyx_projects\byte-array-image-generator\byteArrayImageGenerator\byteArrayImageGenerator\bin\Debug\byteArrayImageGenerator.exe
+C:\Users\TKK\Documents\Onyx_projects\byte-array-image-generator\byteArrayImageGenerator\byteArrayImageGenerator\bin\Debug\byteArrayImageGenerator.pdb
+C:\Users\TKK\Documents\Onyx_projects\byte-array-image-generator\byteArrayImageGenerator\byteArrayImageGenerator\obj\Debug\byteArrayImageGenerator.csprojAssemblyReference.cache
+C:\Users\TKK\Documents\Onyx_projects\byte-array-image-generator\byteArrayImageGenerator\byteArrayImageGenerator\obj\Debug\byteArrayImageGenerator.csproj.CoreCompileInputs.cache
+C:\Users\TKK\Documents\Onyx_projects\byte-array-image-generator\byteArrayImageGenerator\byteArrayImageGenerator\obj\Debug\byteArrayImageGenerator.exe
+C:\Users\TKK\Documents\Onyx_projects\byte-array-image-generator\byteArrayImageGenerator\byteArrayImageGenerator\obj\Debug\byteArrayImageGenerator.pdb
