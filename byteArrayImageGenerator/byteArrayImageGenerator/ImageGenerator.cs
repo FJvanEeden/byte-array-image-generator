@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -12,7 +13,7 @@ namespace byteArrayImageGenerator
     {
     }
 
-    public static bool WriteBitmapFile(string filename, int width, int height, byte[] rawImageData, PixelFormat pixelFormat)
+    public static Image WriteBitmapFile(byte[] rawImageData, int width, int height, ImageFormat imageFormat)
     {
       byte[] newData = new byte[rawImageData.Length];
 
@@ -34,7 +35,7 @@ namespace byteArrayImageGenerator
       rawImageData = newData;
 
       using (var stream = new MemoryStream(rawImageData))
-      using (var bmp = new Bitmap(width, height, pixelFormat))
+      using (Bitmap bmp = new Bitmap(width, height, PixelFormat.Format32bppArgb))
       {
         BitmapData bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.WriteOnly, bmp.PixelFormat);
 
@@ -42,10 +43,9 @@ namespace byteArrayImageGenerator
         Marshal.Copy(rawImageData, 0, pNative, rawImageData.Length);
 
         bmp.UnlockBits(bmpData);
-
-        bmp.Save(filename, ImageFormat.Png);
+        bmp.Save(stream, imageFormat);
+        return (Image)bmp.Clone();
       }
-      return true;
     }
 
     // For testing purposes ONLY

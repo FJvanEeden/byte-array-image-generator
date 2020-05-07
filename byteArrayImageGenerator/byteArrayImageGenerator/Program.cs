@@ -17,21 +17,13 @@ namespace byteArrayImageGenerator
 
       var width = 225;
       var height = 225;
-      var pixelFormat = PixelFormat.Format32bppArgb;
       byte[] testArr = { 255, 255, 0, 255, 255, 0, 255, 255, 0, 255, 0, 255, 0, 0, 255, 255 };
 
 
-      //Test #3
-      var success = ImageGenerator.WriteBitmapFile(folderPath, width, height, testArr, pixelFormat);
+      //Test #6
+      Image success = ImageGenerator.WriteBitmapFile(testArr, width, height, ImageFormat.Png);
+      success.Save(folderPath);
 
-      if (success == true)
-      {
-        Console.WriteLine("File made");
-      }
-      else
-      {
-        Console.WriteLine("Error");
-      }
     }
   }
 }
