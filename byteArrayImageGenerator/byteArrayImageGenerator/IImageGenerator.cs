@@ -5,6 +5,6 @@ namespace byteArrayImageGenerator
 {
   public interface IImageGenerator
   {
-    Image GenerateImage(byte[] stream, int width, int height, PixelFormat pixelFormat);
+    Image GenerateImageFromByteArr(byte[] rawImageData, int width, int height, ImageFormat imageFormat);
   }
 }

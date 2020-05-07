@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -7,13 +6,9 @@ using System.Runtime.InteropServices;
 
 namespace byteArrayImageGenerator
 {
-  class ImageGenerator
+  class ImageGenerator : IImageGenerator
   {
-    public ImageGenerator()
-    {
-    }
-
-    public static Image WriteBitmapFile(byte[] rawImageData, int width, int height, ImageFormat imageFormat)
+    public Image GenerateImageFromByteArr(byte[] rawImageData, int width, int height, ImageFormat imageFormat)
     {
       byte[] newData = new byte[rawImageData.Length];
 
@@ -46,21 +41,6 @@ namespace byteArrayImageGenerator
         bmp.Save(stream, imageFormat);
         return (Image)bmp.Clone();
       }
-    }
-
-    // For testing purposes ONLY
-    public static byte[] imageToByteArray(System.Drawing.Image imageIn)
-    {
-      MemoryStream ms = new MemoryStream();
-      imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-      return ms.ToArray();
-    }
-
-    public static Image byteArrayToImage(byte[] byteArrayIn)
-    {
-      MemoryStream ms = new MemoryStream(byteArrayIn);
-      Image returnImage = Image.FromStream(ms);
-      return returnImage;
     }
   }
 }
