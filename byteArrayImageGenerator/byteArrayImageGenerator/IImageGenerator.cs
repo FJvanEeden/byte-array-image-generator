@@ -3,8 +3,8 @@ using System.Drawing.Imaging;
 
 namespace byteArrayImageGenerator
 {
-  interface IImageGenerator
+  public interface IImageGenerator
   {
-    Image GenerateImage(byte[] stream, int width, int height, ImageFormat outputImageType);
+    Image GenerateImageFromByteArr(byte[] rawImageData, int width, int height, ImageFormat imageFormat);
   }
 }
