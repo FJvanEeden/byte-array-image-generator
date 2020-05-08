@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -6,9 +7,17 @@ using System.Runtime.InteropServices;
 
 namespace byteArrayImageGenerator
 {
-  class ImageGenerator : IImageGenerator
+  class ImageGenerator : IEnumerable // Removed class interface
   {
-    public Image GenerateImageFromByteArr(byte[] rawImageData, int width, int height, ImageFormat imageFormat)
+    private object[] _objects; // Test implementation
+
+    public ImageGenerator()
+    {
+      
+    }
+
+    // Made static to test
+    public static Image GenerateImageFromByteArr(byte[] rawImageData, int width, int height, ImageFormat imageFormat)
     {
       byte[] newData = new byte[rawImageData.Length];
 
@@ -40,6 +49,37 @@ namespace byteArrayImageGenerator
         bmp.UnlockBits(bmpData);
         bmp.Save(stream, imageFormat);
         return (Image)bmp.Clone();
+      }
+    }
+
+    // Test implementation
+    public IEnumerator GetEnumerator()
+    {
+      return new ArrayEnumerator(_objects);
+    }
+
+    private class ArrayEnumerator : IEnumerator
+    {
+      private object[] mValues;
+
+      private int _currentIndex = -1;
+
+      public ArrayEnumerator(object[] values)
+      {
+        mValues = values;
+      }
+
+      public bool MoveNext()
+      {
+        _currentIndex++;
+        return (_currentIndex < mValues.Length);
+      }
+
+      public object Current { get; private set; } = 0;
+      
+      public void Reset()
+      {
+        _currentIndex = 0;
       }
     }
   }

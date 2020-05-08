@@ -36,8 +36,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FunctionTester.cs" />
-    <Compile Include="IFunctionTester.cs" />
     <Compile Include="IImageGenerator.cs" />
     <Compile Include="ImageGenerator.cs" />
     <Compile Include="Program.cs" />
